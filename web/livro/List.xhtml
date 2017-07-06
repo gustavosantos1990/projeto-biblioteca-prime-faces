@@ -41,24 +41,6 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLivroTitle_idAutor}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idAutor}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLivroTitle_idCategoria}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idCategoria}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListLivroTitle_idEditora}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEditora}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListLivroTitle_numPaginas}"/>
                             </f:facet>
                             <h:outputText value="#{item.numPaginas}"/>
@@ -80,6 +62,24 @@
                                 <h:outputText value="#{bundle.ListLivroTitle_imagem}"/>
                             </f:facet>
                             <h:outputText value="#{item.imagem}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLivroTitle_idAutor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAutor}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLivroTitle_idCategoria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCategoria}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLivroTitle_idEditora}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEditora}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{livroController.prepareCreate}" update=":LivroCreateForm" oncomplete="PF('LivroCreateDialog').show()"/>

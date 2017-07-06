@@ -32,10 +32,23 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Livro.findAll", query = "SELECT l FROM Livro l")
     , @NamedQuery(name = "Livro.findById", query = "SELECT l FROM Livro l WHERE l.id = :id")
     , @NamedQuery(name = "Livro.findByNome", query = "SELECT l FROM Livro l WHERE l.nome = :nome")
+    , @NamedQuery(name = "Livro.findByNumPaginas", query = "SELECT l FROM Livro l WHERE l.numPaginas = :numPaginas")
     , @NamedQuery(name = "Livro.findByEdicao", query = "SELECT l FROM Livro l WHERE l.edicao = :edicao")
-    , @NamedQuery(name = "Livro.findByIsbn", query = "SELECT l FROM Livro l WHERE l.isbn = :isbn")})
+    , @NamedQuery(name = "Livro.findByIsbn", query = "SELECT l FROM Livro l WHERE l.isbn = :isbn")
+    , @NamedQuery(name = "Livro.findByImagem", query = "SELECT l FROM Livro l WHERE l.imagem = :imagem")})
 public class Livro implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ID", nullable = false)
+    private Integer id;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 300)
+    @Column(name = "NOME", nullable = false, length = 300)
+    private String nome;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NUM_PAGINAS", nullable = false)
@@ -51,18 +64,6 @@ public class Livro implements Serializable {
     @Size(max = 100)
     @Column(name = "IMAGEM", length = 100)
     private String imagem;
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "ID", nullable = false)
-    private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 300)
-    @Column(name = "NOME", nullable = false, length = 300)
-    private String nome;
     @JoinColumn(name = "ID_AUTOR", referencedColumnName = "ID", nullable = false)
     @ManyToOne(optional = false)
     private Autor idAutor;
@@ -80,11 +81,11 @@ public class Livro implements Serializable {
         this.id = id;
     }
 
-    public Livro(Integer id, String nome, String edicao, String isbn) {
+    public Livro(Integer id, String nome, int numPaginas, String edicao) {
         this.id = id;
         this.nome = nome;
+        this.numPaginas = numPaginas;
         this.edicao = edicao;
-        this.isbn = isbn;
     }
 
     public Integer getId() {
@@ -103,6 +104,37 @@ public class Livro implements Serializable {
         this.nome = nome;
     }
 
+    public int getNumPaginas() {
+        return numPaginas;
+    }
+
+    public void setNumPaginas(int numPaginas) {
+        this.numPaginas = numPaginas;
+    }
+
+    public String getEdicao() {
+        return edicao;
+    }
+
+    public void setEdicao(String edicao) {
+        this.edicao = edicao;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
     public Autor getIdAutor() {
         return idAutor;
@@ -151,38 +183,6 @@ public class Livro implements Serializable {
     @Override
     public String toString() {
         return "modelo.Livro[ id=" + id + " ]";
-    }
-
-    public int getNumPaginas() {
-        return numPaginas;
-    }
-
-    public void setNumPaginas(int numPaginas) {
-        this.numPaginas = numPaginas;
-    }
-
-    public String getEdicao() {
-        return edicao;
-    }
-
-    public void setEdicao(String edicao) {
-        this.edicao = edicao;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
     }
     
 }
