@@ -20,6 +20,8 @@
                         <p:inputText id="biografia" value="#{autorController.selected.biografia}" title="#{bundle.EditAutorTitle_biografia}" />
                         <p:outputLabel value="#{bundle.EditAutorLabel_dataNasc}" for="dataNasc" />
                         <p:calendar id="dataNasc" pattern="MM/dd/yyyy" value="#{autorController.selected.dataNasc}" title="#{bundle.EditAutorTitle_dataNasc}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAutorLabel_imagem}" for="imagem" />
+                        <p:inputText id="imagem" value="#{autorController.selected.imagem}" title="#{bundle.EditAutorTitle_imagem}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{autorController.update}" value="#{bundle.Save}" update="display,:AutorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AutorEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="AutorEditDialog.hide()"/>

@@ -22,6 +22,8 @@
                         <h:outputText value="#{autorController.selected.dataNasc}" title="#{bundle.ViewAutorTitle_dataNasc}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
+                        <h:outputText value="#{bundle.ViewAutorLabel_imagem}"/>
+                        <h:outputText value="#{autorController.selected.imagem}" title="#{bundle.ViewAutorTitle_imagem}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="AutorViewDialog.hide()"/>
                 </h:panelGroup>

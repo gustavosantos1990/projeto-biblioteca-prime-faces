@@ -20,6 +20,12 @@
                         <p:inputText id="senha" value="#{usuarioController.selected.senha}" title="#{bundle.CreateUsuarioTitle_senha}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_senha}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_foto}" for="foto" />
                         <p:inputText id="foto" value="#{usuarioController.selected.foto}" title="#{bundle.CreateUsuarioTitle_foto}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_cpf}" for="cpf" />
+                        <p:inputText id="cpf" value="#{usuarioController.selected.cpf}" title="#{bundle.CreateUsuarioTitle_cpf}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_cpf}"/>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{usuarioController.selected.email}" title="#{bundle.CreateUsuarioTitle_email}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_imagem}" for="imagem" />
+                        <p:inputText id="imagem" value="#{usuarioController.selected.imagem}" title="#{bundle.CreateUsuarioTitle_imagem}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioCreateDialog.hide()"/>

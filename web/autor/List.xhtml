@@ -53,6 +53,12 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAutorTitle_imagem}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.imagem}"/>
+                        </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{autorController.prepareCreate}" update=":AutorCreateForm" oncomplete="PF('AutorCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AutorViewForm" oncomplete="PF('AutorViewDialog').show()" disabled="#{empty autorController.selected}"/>

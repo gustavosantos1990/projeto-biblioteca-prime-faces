@@ -41,6 +41,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Autor.findByDataNasc", query = "SELECT a FROM Autor a WHERE a.dataNasc = :dataNasc")})
 public class Autor implements Serializable {
 
+    @Size(max = 100)
+    @Column(name = "IMAGEM", length = 100)
+    private String imagem;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -137,6 +141,14 @@ public class Autor implements Serializable {
     @Override
     public String toString() {
         return "modelo.Autor[ id=" + id + " ]";
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
     
 }

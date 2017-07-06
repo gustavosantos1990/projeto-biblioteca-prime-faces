@@ -16,10 +16,6 @@
                         <p:inputText id="id" value="#{livroController.selected.id}" title="#{bundle.CreateLivroTitle_id}" required="true" requiredMessage="#{bundle.CreateLivroRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateLivroLabel_nome}" for="nome" />
                         <p:inputText id="nome" value="#{livroController.selected.nome}" title="#{bundle.CreateLivroTitle_nome}" required="true" requiredMessage="#{bundle.CreateLivroRequiredMessage_nome}"/>
-                        <p:outputLabel value="#{bundle.CreateLivroLabel_edicao}" for="edicao" />
-                        <p:inputText id="edicao" value="#{livroController.selected.edicao}" title="#{bundle.CreateLivroTitle_edicao}" required="true" requiredMessage="#{bundle.CreateLivroRequiredMessage_edicao}"/>
-                        <p:outputLabel value="#{bundle.CreateLivroLabel_isbn}" for="isbn" />
-                        <p:inputText id="isbn" value="#{livroController.selected.isbn}" title="#{bundle.CreateLivroTitle_isbn}" required="true" requiredMessage="#{bundle.CreateLivroRequiredMessage_isbn}"/>
                         <p:outputLabel value="#{bundle.CreateLivroLabel_idAutor}" for="idAutor" />
                         <p:selectOneMenu id="idAutor" value="#{livroController.selected.idAutor}" required="true" requiredMessage="#{bundle.EditLivroRequiredMessage_idAutor}">
                             <f:selectItems value="#{autorController.itemsAvailableSelectOne}"
@@ -38,6 +34,14 @@
                                            var="idEditoraItem"
                                            itemValue="#{idEditoraItem}"/>
                         </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateLivroLabel_numPaginas}" for="numPaginas" />
+                        <p:inputText id="numPaginas" value="#{livroController.selected.numPaginas}" title="#{bundle.CreateLivroTitle_numPaginas}" required="true" requiredMessage="#{bundle.CreateLivroRequiredMessage_numPaginas}"/>
+                        <p:outputLabel value="#{bundle.CreateLivroLabel_edicao}" for="edicao" />
+                        <p:inputText id="edicao" value="#{livroController.selected.edicao}" title="#{bundle.CreateLivroTitle_edicao}" required="true" requiredMessage="#{bundle.CreateLivroRequiredMessage_edicao}"/>
+                        <p:outputLabel value="#{bundle.CreateLivroLabel_isbn}" for="isbn" />
+                        <p:inputText id="isbn" value="#{livroController.selected.isbn}" title="#{bundle.CreateLivroTitle_isbn}" />
+                        <p:outputLabel value="#{bundle.CreateLivroLabel_imagem}" for="imagem" />
+                        <p:inputText id="imagem" value="#{livroController.selected.imagem}" title="#{bundle.CreateLivroTitle_imagem}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{livroController.create}" value="#{bundle.Save}" update="display,:LivroListForm:datalist,:growl" oncomplete="handleSubmit(args,'LivroCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="LivroCreateDialog.hide()"/>
