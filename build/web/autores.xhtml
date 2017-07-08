@@ -8,7 +8,7 @@
 
 
     <h:head>
-        <title>Livros - Lar da Letra</title>
+        <title>Autores - Lar da Letra</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
@@ -76,54 +76,52 @@
                 <!-- DataGrid-->
 
                 <h:form id="form">
-                    <p:dataGrid var="livro" value="#{livroController.items}" columns="3" layout="grid"
-                                rows="12" paginator="true" id="livro"
+                    <p:dataGrid var="autor" value="#{autorController.items}" columns="3" layout="grid"
+                                rows="12" paginator="true" id="autor"
                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                 rowsPerPageTemplate="6,12,16">
 
                         <f:facet name="header">
-                            Livros
+                            Autores
                         </f:facet>
 
-                        <p:panel header="#{livro.nome}" style="text-align:center">
+                        <p:panel header="#{autor.nome}" style="text-align:center">
                             <h:panelGrid columns="1" style="width:100%">
-                                <p:graphicImage value="/images/livros/#{livro.imagem}-peq.jpeg"/>
+                                <p:graphicImage value="/images/autores/#{autor.imagem}-peq.jpeg"/>
 
-                                <!--<h:outputText value="#{livro.nome}" />-->
+                                <!--<h:outputText value="#{autor.nome}" />-->
 
-                                <p:commandLink update=":form:livroDetail" oncomplete="PF('livroDialog').show()" title="View Detail">
+                                <p:commandLink update=":form:autorDetail" oncomplete="PF('autorDialog').show()" title="View Detail">
                                     <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;"  />
-                                    <f:setPropertyActionListener value="#{livro}" target="#{livroController.selected}" />
+                                    <f:setPropertyActionListener value="#{autor}" target="#{autorController.selected}" />
                                 </p:commandLink>
                             </h:panelGrid>
                         </p:panel>
 
                     </p:dataGrid>
-<!-- &lt;p:dialog header="Livro Info" widgetVar="livroDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false"&gt;-->
-<p:dialog header="Livro Info" widgetVar="livroDialog" modal="true" resizable="false" appendTo="@(body)">
+                    
+                    <p:dialog header="Autor Info" widgetVar="autorDialog" modal="true" resizable="false" appendTo="@(body)" width="800px">
                         <p:confirmDialog appendTo="@(body)" />
-                        <p:outputPanel id="livroDetail" style="text-align:center;">
-                            <p:panelGrid  columns="2" rendered="#{not empty livroController.selected}" columnClasses="label,value">
+                        <p:outputPanel id="autorDetail" style="text-align:center;">
+                            <p:panelGrid  columns="2" rendered="#{not empty autorController.selected}" columnClasses="label,value">
                                 <f:facet name="header">
-                                    <p:graphicImage value="/images/livros/#{livroController.selected.imagem}.jpeg"/> 
+                                    <p:graphicImage value="/images/autores/#{autorController.selected.imagem}.jpeg"/> 
                                 </f:facet>
 
-                                <!--<h:outputText value="Id:" />
-                                <h:outputText value="#{livroController.selected.id}" />-->
+                                <h:outputText value="Nome" />
+                                <h:outputText value="#{autorController.selected.nome}" />
 
-                                <h:outputText value="Título" />
-                                <h:outputText value="#{livroController.selected.nome}" />
+                                <h:outputText value="Data de Nascimento" />
+                                <h:outputText value="#{autorController.selected.dataNasc}" />
 
-                                <h:outputText value="Color:" />
-                                <h:outputText value="#{livroController.selected.isbn}" />
+                                <h:outputText value="Biografia" />
+                                <h:outputText value="$#{autorController.selected.biografia}" />
 
-                                <h:outputText value="Número de Páginas" />
-                                <h:outputText value="$#{livroController.selected.numPaginas}" />
                             </p:panelGrid>
                         </p:outputPanel>
                     </p:dialog>
                 </h:form>
-                
+
                 <!-- FIM DataGrid-->
 
 

@@ -17,10 +17,10 @@
 
 
             <!-- North/Cabeçalho -->
-            <p:layoutUnit position="north" size="80">
+            <p>      </p><p:layoutUnit position="north" size="190">
                 <pm:page>
                     <pm:header title="Header">
-                        <h1>Lar da Letra - Biblioteca</h1>
+                        <p:graphicImage value="/images/index/logo-peq.jpeg"/>
                     </pm:header>
                 </pm:page>
             </p:layoutUnit>
@@ -40,6 +40,7 @@
                     <p:submenu label="Menu Novo">
                         <p:menuitem value="Home" url="/faces/index.xhtml" icon="ui-icon-home"/>
                         <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Autores" url="/faces/autores.xhtml"/>
                         <p:menuitem value="Nosso Endereço" url="/faces/endereco.xhtml"/>
                     </p:submenu>
                     <p:submenu label="Menu Antigo">
@@ -81,14 +82,14 @@
                                 rowsPerPageTemplate="6,12,16">
 
                         <f:facet name="header">
-                            Cars for Sale
+                            Livros
                         </f:facet>
 
-                        <p:panel header="#{livro.id}" style="text-align:center">
+                        <p:panel header="#{livro.nome}" style="text-align:center">
                             <h:panelGrid columns="1" style="width:100%">
                                 <p:graphicImage value="/images/livros/#{livro.imagem}-peq.jpeg"/>
 
-                                <h:outputText value="#{livro.nome}" />
+                                <!--<h:outputText value="#{livro.nome}" />-->
 
                                 <p:commandLink update=":form:livroDetail" oncomplete="PF('livroDialog').show()" title="View Detail">
                                     <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;"  />
@@ -107,16 +108,16 @@
                                     <p:graphicImage value="/images/livros/#{livroController.selected.imagem}.jpeg"/> 
                                 </f:facet>
 
-                                <h:outputText value="Id:" />
-                                <h:outputText value="#{livroController.selected.id}" />
+                                <!--<h:outputText value="Id:" />
+                                <h:outputText value="#{livroController.selected.id}" />-->
 
-                                <h:outputText value="Year" />
+                                <h:outputText value="Título" />
                                 <h:outputText value="#{livroController.selected.nome}" />
 
                                 <h:outputText value="Color:" />
                                 <h:outputText value="#{livroController.selected.isbn}" />
 
-                                <h:outputText value="Price" />
+                                <h:outputText value="Número de Páginas" />
                                 <h:outputText value="$#{livroController.selected.numPaginas}" />
                             </p:panelGrid>
                         </p:outputPanel>
