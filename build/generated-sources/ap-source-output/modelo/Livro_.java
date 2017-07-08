@@ -7,7 +7,7 @@ import modelo.Autor;
 import modelo.Categoria;
 import modelo.Editora;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-07-06T01:40:11")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-07-07T21:39:38")
 @StaticMetamodel(Livro.class)
 public class Livro_ { 
 

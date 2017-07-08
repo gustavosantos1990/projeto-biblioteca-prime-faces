@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
+
+
+    <h:head>
+        <title>Livros - Lar da Letra</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
+
+
+            <!-- North/Cabeçalho -->
+            <p:layoutUnit position="north" size="80">
+                <pm:page>
+                    <pm:header title="Header">
+                        <h1>Lar da Letra - Biblioteca</h1>
+                    </pm:header>
+                </pm:page>
+            </p:layoutUnit>
+            <!-- FIM North/Cabeçalho -->
+
+
+            <!-- South/Footer -->
+            <p:layoutUnit position="south" size="50">
+                <h3>Developed by Gustavo Santos - 2017</h3>
+            </p:layoutUnit>
+            <!-- FIM South/Footer -->
+
+
+            <!-- West/Esquerda/Oeste -->
+            <p:layoutUnit header="Menu" position="west" size="170">
+                <p:menu >
+                    <p:submenu label="Menu Novo">
+                        <p:menuitem value="Google" url="http://www.google.com" />
+                    </p:submenu>
+                    <p:submenu label="Menu Antigo">
+                        <p:menuitem value="Autor" url="autor/List.xhtml"/>
+                        <p:menuitem value="Editora" url="editora/List.xhtml"/>
+                        <p:menuitem value="Categoria" url="categoria/List.xhtml"/>
+                        <p:menuitem value="Livro" url="livro/List.xhtml"/>
+                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Usuário" url="usuario/List.xhtml"/>
+                    </p:submenu>
+                    <p:menuitem value="Welcome PrimeFaces" url="faces/welcomePrimefaces.xhtml"/>
+                    <p:submenu label="Resources PrimeFaces">
+                        <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                        <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                        <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                        <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                    </p:submenu>
+                </p:menu>
+            </p:layoutUnit>
+            <!-- FIM West/Esquerda/Oeste -->
+
+
+
+            <!-- Center/Centro -->
+            <p:layoutUnit position="center">
+
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-10">
+                        <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <h:form id="form">
+                            <p:dataGrid var="livro" value="#{livroController.items}" columns="3" layout="grid"
+                                        rows="12" paginator="true" id="livros"
+                                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                        rowsPerPageTemplate="6,12,16">
+
+                                <f:facet name="header">
+                                    Livros for Sale
+                                </f:facet>
+
+                                <p:panel header="#{livro.id}" style="text-align:center">
+                                    <h:panelGrid columns="1" style="width:100%">
+                                        <p:graphicImage name="images/livros/#{livro.imagem}.jpeg"/> 
+
+                                        <h:outputText value="#{livro.nome}" />
+
+                                        <p:commandLink update=":form:livroDetail" oncomplete="PF('livroDialog').show()" title="View Detail">
+                                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                                            <f:setPropertyActionListener value="#{livro}" target="#{livroController.selected}" />
+                                        </p:commandLink>
+                                    </h:panelGrid>
+                                </p:panel>
+
+                            </p:dataGrid>
+
+                            <p:dialog header="Livro Info" widgetVar="livroDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                                <p:outputPanel id="livroDetail" style="text-align:center;">
+                                    <p:panelGrid  columns="2" rendered="#{not empty livroController.selected}" columnClasses="label,value">
+                                        <f:facet name="header">
+                                            <p:graphicImage name="/images/livros/#{livroController.selected.imagem}.jpeg"/> 
+                                        </f:facet>
+
+                                        <h:outputText value="Id:" />
+                                        <h:outputText value="#{livroController.selected.id}" />
+
+                                        <h:outputText value="Nome" />
+                                        <h:outputText value="#{livroController.selected.nome}" />
+
+                                    </p:panelGrid>
+                                </p:outputPanel>
+                            </p:dialog>
+                        </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
+
+            </p:layoutUnit>
+            <!-- FIM Center/Centro -->
+        </p:layout>
+
+    </h:body>
+</html>
+

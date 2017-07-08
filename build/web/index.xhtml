@@ -3,7 +3,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
 
 
     <h:head>
@@ -13,36 +14,39 @@
     <h:body>
 
         <p:layout fullPage="true">
-            <!-- Topo -->
-            <p:layoutUnit position="north" size="80">
+            
+            
+            <!-- North/Cabeçalho -->
+            <p>      </p><p:layoutUnit position="north" size="350">
                 <pm:page>
                     <pm:header title="Header">
-                        <h1>Lar da Letra - Biblioteca</h1>
+                        <p:graphicImage value="/images/index/logo.jpeg"/>
                     </pm:header>
                 </pm:page>
             </p:layoutUnit>
-            <!-- Fim Topo -->
+            <!-- FIM North/Cabeçalho -->
 
 
-            <!-- Footer -->
-            <p:layoutUnit position="south" size="100">
+            <!-- South/Footer -->
+            <p:layoutUnit position="south" size="50">
                 <h3>Developed by Gustavo Santos - 2017</h3>
             </p:layoutUnit>
-            <!-- Fim Footer -->
+            <!-- FIM South/Footer -->
 
 
-
+            <!-- West/Esquerda/Oeste -->
             <p:layoutUnit header="Menu" position="west" size="170">
                 <p:menu >
                     <p:submenu label="Menu Novo">
                         <p:menuitem value="Google" url="http://www.google.com" />
                     </p:submenu>
                     <p:submenu label="Menu Antigo">
-                        <p:menuitem value="Autor" url="autor/List"/>
-                        <p:menuitem value="Editora" url="editora/List"/>
-                        <p:menuitem value="Categoria" url="categoria/List"/>
-                        <p:menuitem value="Livro" url="livro/List"/>
-                        <p:menuitem value="Usuário" url="usuario/List"/>
+                        <p:menuitem value="Autor" url="autor/List.xhtml"/>
+                        <p:menuitem value="Editora" url="editora/List.xhtml"/>
+                        <p:menuitem value="Categoria" url="categoria/List.xhtml"/>
+                        <p:menuitem value="Livro" url="livro/List.xhtml"/>
+                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Usuário" url="usuario/List.xhtml"/>
                     </p:submenu>
                     <p:menuitem value="Welcome PrimeFaces" url="faces/welcomePrimefaces.xhtml"/>
                     <p:submenu label="Resources PrimeFaces">
@@ -52,29 +56,33 @@
                         <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
 
                     </p:submenu>
-
                 </p:menu>
-
             </p:layoutUnit>
+            <!-- FIM West/Esquerda/Oeste -->
 
-            <p:layoutUnit position="east" size="200">
-                <h:outputText value="Right Content" />
-            </p:layoutUnit>
-
-
-
+            
+            
+            <!-- Center/Centro -->
             <p:layoutUnit position="center">
 
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-10">
+                        <br/>
+                        <br/>
                         <h2>A cultura da informação nas bibliotecas públicas brasileiras.</h2>
                         <p>Desde o Brasil Colônia, as bibliotecas públicas brasileiras pouco contribuíram para a democratização do acesso à informação. Na Sociedade da Informação, o papel da biblioteca pública passa a ser de vital importância na medida em que pode se tornar o grande centro disseminador da informação, atuando principalmente para diminuir as desigualdades existentes na sociedade brasileira. O estudo objetiva destacar as funções da biblioteca pública
                             ao longo do tempo e sua permanente sintonia com os processos sociais, bem como abordar as atuais tecnologias da informação e comunicação no cotidiano dos cidadãos enquanto usuários, e por fim, caracterizar sua atuação e realidade dentro da Sociedade da Informação. Para o desenvolvimento desse estudo a metodologia utilizada foi uma pesquisa básica, com abordagem qualitativa-indutiva, objetivamente exploratória a partir de uma pesquisa bibliográfica. Concluiu-se que já que não conseguiu “ser tudo para todos”, a bibliotecapública pode segmentar o mercado e oferecer produtos e serviços racionalmente estruturados de acordo com as necessidades informacionais da comunidade.</p>
-
+                        <br/>
+                        <br/>
+                        <br/>
                         <h2>A importância da leitura!</h2>
                         <p>Um dos grandes desafios dos professores da educação básica é ensinar a leitura para os alunos, mas ensinar não só a decifrar códigos, e sim a ter o hábito de ler. Seja por prazer, seja para estudar ou para se informar, a prática da leitura aprimora o vocabulário e dinamiza o raciocínio e a interpretação.</p>
                         
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h2>Benefícios da Leitura!</h2>
                         <p:carousel autoPlayInterval="5000" effect="easeInStrong" circular="true"
                                     itemStyle="width:50px" numVisible="1">
                             <p:graphicImage value="/images/carousel/1.jpg"/>
@@ -86,14 +94,10 @@
                     <div class="ui-g-1"></div>
                 </div>
 
-                
-
             </p:layoutUnit>
+            <!-- FIM Center/Centro -->
         </p:layout>
 
     </h:body>
-
-
-
 </html>
 
