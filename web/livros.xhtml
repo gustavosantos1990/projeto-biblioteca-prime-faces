@@ -35,21 +35,22 @@
 
 
             <!-- West/Esquerda/Oeste -->
-            <p:layoutUnit header="Menu" position="west" size="170">
+            <p:layoutUnit header="Menu" position="west" size="200">
                 <p:menu >
                     <p:submenu label="Menu Novo">
-                        <p:menuitem value="Google" url="http://www.google.com" />
+                        <p:menuitem value="Home" url="/faces/index.xhtml" icon="ui-icon-home"/>
+                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Nosso Endereço" url="/faces/endereco.xhtml"/>
                     </p:submenu>
                     <p:submenu label="Menu Antigo">
                         <p:menuitem value="Autor" url="autor/List.xhtml"/>
                         <p:menuitem value="Editora" url="editora/List.xhtml"/>
                         <p:menuitem value="Categoria" url="categoria/List.xhtml"/>
                         <p:menuitem value="Livro" url="livro/List.xhtml"/>
-                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
                         <p:menuitem value="Usuário" url="usuario/List.xhtml"/>
                     </p:submenu>
-                    <p:menuitem value="Welcome PrimeFaces" url="faces/welcomePrimefaces.xhtml"/>
                     <p:submenu label="Resources PrimeFaces">
+                        <p:menuitem value="Welcome PrimeFaces" url="faces/welcomePrimefaces.xhtml"/>
                         <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
                         <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
                         <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
@@ -57,6 +58,8 @@
 
                     </p:submenu>
                 </p:menu>
+
+
             </p:layoutUnit>
             <!-- FIM West/Esquerda/Oeste -->
 
@@ -65,84 +68,67 @@
             <!-- Center/Centro -->
             <p:layoutUnit position="center">
 
-                <div class="ui-g">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-10">
-                        <br/>
 
 
 
 
+                <!-- DataGrid-->
 
+                <h:form id="form">
+                    <p:dataGrid var="livro" value="#{livroController.items}" columns="3" layout="grid"
+                                rows="12" paginator="true" id="livro"
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                rowsPerPageTemplate="6,12,16">
 
+                        <f:facet name="header">
+                            Cars for Sale
+                        </f:facet>
 
+                        <p:panel header="#{livro.id}" style="text-align:center">
+                            <h:panelGrid columns="1" style="width:100%">
+                                <p:graphicImage value="/images/livros/#{livro.imagem}-peq.jpeg"/>
 
+                                <h:outputText value="#{livro.nome}" />
 
+                                <p:commandLink update=":form:livroDetail" oncomplete="PF('livroDialog').show()" title="View Detail">
+                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;"  />
+                                    <f:setPropertyActionListener value="#{livro}" target="#{livroController.selected}" />
+                                </p:commandLink>
+                            </h:panelGrid>
+                        </p:panel>
 
-
-
-                        <h:form id="form">
-                            <p:dataGrid var="livro" value="#{livroController.items}" columns="3" layout="grid"
-                                        rows="12" paginator="true" id="livros"
-                                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                        rowsPerPageTemplate="6,12,16">
-
+                    </p:dataGrid>
+<!-- &lt;p:dialog header="Livro Info" widgetVar="livroDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false"&gt;-->
+<p:dialog header="Livro Info" widgetVar="livroDialog" modal="true" resizable="false" appendTo="@(body)">
+                        <p:confirmDialog appendTo="@(body)" />
+                        <p:outputPanel id="livroDetail" style="text-align:center;">
+                            <p:panelGrid  columns="2" rendered="#{not empty livroController.selected}" columnClasses="label,value">
                                 <f:facet name="header">
-                                    Livros for Sale
+                                    <p:graphicImage value="/images/livros/#{livroController.selected.imagem}.jpeg"/> 
                                 </f:facet>
 
-                                <p:panel header="#{livro.id}" style="text-align:center">
-                                    <h:panelGrid columns="1" style="width:100%">
-                                        <p:graphicImage name="images/livros/#{livro.imagem}.jpeg"/> 
+                                <h:outputText value="Id:" />
+                                <h:outputText value="#{livroController.selected.id}" />
 
-                                        <h:outputText value="#{livro.nome}" />
+                                <h:outputText value="Year" />
+                                <h:outputText value="#{livroController.selected.nome}" />
 
-                                        <p:commandLink update=":form:livroDetail" oncomplete="PF('livroDialog').show()" title="View Detail">
-                                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
-                                            <f:setPropertyActionListener value="#{livro}" target="#{livroController.selected}" />
-                                        </p:commandLink>
-                                    </h:panelGrid>
-                                </p:panel>
+                                <h:outputText value="Color:" />
+                                <h:outputText value="#{livroController.selected.isbn}" />
 
-                            </p:dataGrid>
-
-                            <p:dialog header="Livro Info" widgetVar="livroDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-                                <p:outputPanel id="livroDetail" style="text-align:center;">
-                                    <p:panelGrid  columns="2" rendered="#{not empty livroController.selected}" columnClasses="label,value">
-                                        <f:facet name="header">
-                                            <p:graphicImage name="/images/livros/#{livroController.selected.imagem}.jpeg"/> 
-                                        </f:facet>
-
-                                        <h:outputText value="Id:" />
-                                        <h:outputText value="#{livroController.selected.id}" />
-
-                                        <h:outputText value="Nome" />
-                                        <h:outputText value="#{livroController.selected.nome}" />
-
-                                    </p:panelGrid>
-                                </p:outputPanel>
-                            </p:dialog>
-                        </h:form>
+                                <h:outputText value="Price" />
+                                <h:outputText value="$#{livroController.selected.numPaginas}" />
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                
+                <!-- FIM DataGrid-->
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                    <div class="ui-g-1"></div>
-                </div>
 
             </p:layoutUnit>
             <!-- FIM Center/Centro -->
