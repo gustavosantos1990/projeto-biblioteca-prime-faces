@@ -1,0 +1,33 @@
+
+REQUISITOS ATENDIDOS
+
+> Banco de dados de entrega: Java DB (você poderá testar em outro)
+
+> Tabelas: mínimo de 3 (Exemplos: livro, autor, usuario, emprestimo, etc)
+
+> Versão: 6.0 (precisa atualizar o arquivo primefaces-6.0.jar)
+
+> Layout (mínimo de norte/cabeçalho, sul/rodapé, oeste/esquerda, center/principal)
+
+> Menu
+
+> Carousel
+
+> Listagem de Livros com CAPA
+
+
+
+
+REQUISITOS NÃO ATENDIDOS
+
+> Botão de Imprimir tabela de livros -> Identifiquei a tag necessária, mas não consegui solucionar as dependências da mesma.
+
+> Google maps do endereço da biblioteca ->  O map aparece mas fecha logo em seguida, não consegui solucionar
+
+> Código de barra do ISBN em uma listagem de livros  -> Identifiquei a tag necessária, mas não 	consegui solucionar as dependências da mesma.
+
+> Botão exportar lista de livros em PDF -> Identifiquei a tag necessária, mas não consegui solucionar as dependências da mesma.
+
+> Página de contato gravando no banco de dados
+
+> Usuários com foto

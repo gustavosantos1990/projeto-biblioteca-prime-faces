@@ -74,7 +74,7 @@
                             <p:outputLabel value="#{bundle.CreateMensagemLabel_mensagem}" for="mensagem" />
                             <p:inputText id="mensagem" value="#{mensagemController.selected.mensagem}" title="#{bundle.CreateMensagemTitle_mensagem}" required="true" requiredMessage="#{bundle.CreateMensagemRequiredMessage_mensagem}"/>
                         </p:panelGrid>
-                        <p:commandButton actionListener="#{mensagemController.create}" value="#{bundle.Save}" update="display,:MensagemListForm:datalist,:growl" oncomplete="handleSubmit(args,'MensagemCreateDialog');"/>
+                        <p:commandButton actionListener="#{mensagemController.create}" value="#{bundle.Save}" update="display" oncomplete="handleSubmit(args,'MensagemCreateDialog');"/>
                         <p:commandButton value="#{bundle.Cancel}" onclick="MensagemCreateDialog.hide()"/>
                     </h:panelGroup>
                 </h:form>
@@ -84,7 +84,7 @@
         </p:layout>
 
         <br />
-        <h:link outcome="/mensagem/List" value="Show All Mensagem Items"/>
+
     </h:body>
 
 </html>
