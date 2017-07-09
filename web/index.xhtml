@@ -8,14 +8,14 @@
 
 
     <h:head>
-        <title>Lar da Letra - Biblioteca</title>
+        <title>Lar das Letras - Biblioteca</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
 
         <p:layout fullPage="true">
-            
-            
+
+
             <!-- North/Cabeçalho -->
             <p>      </p><p:layoutUnit position="north" size="350">
                 <pm:page>
@@ -37,33 +37,29 @@
             <!-- West/Esquerda/Oeste -->
             <p:layoutUnit header="Menu" position="west" size="200">
                 <p:menu >
-                    <p:submenu label="Menu Novo">
+                    <p:submenu label="Menu">
                         <p:menuitem value="Home" url="/faces/index.xhtml" icon="ui-icon-home"/>
                         <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
                         <p:menuitem value="Autores" url="/faces/autores.xhtml"/>
                         <p:menuitem value="Nosso Endereço" url="/faces/endereco.xhtml"/>
+                        <p:menuitem value="Deixe sua mensagem" url="/faces/mensagem.xhtml"/>
                     </p:submenu>
-                    <p:submenu label="Menu Antigo">
-                        <p:menuitem value="Autor" url="autor/List.xhtml"/>
-                        <p:menuitem value="Editora" url="editora/List.xhtml"/>
-                        <p:menuitem value="Categoria" url="categoria/List.xhtml"/>
-                        <p:menuitem value="Livro" url="livro/List.xhtml"/>
-                        <p:menuitem value="Usuário" url="usuario/List.xhtml"/>
+                    <p:submenu label="Relatórios">
+                        <p:menuitem value="Livros" url="/faces/rellivros.xhtml"/>
                     </p:submenu>
-                    <p:submenu label="Resources PrimeFaces">
-                        <p:menuitem value="Welcome PrimeFaces" url="faces/welcomePrimefaces.xhtml"/>
-                        <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
-                        <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                        <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                        <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
+                    <p:submenu label="Manutenção">
+                        <p:menuitem value="Autores" url="autor/List.xhtml"/>
+                        <p:menuitem value="Editoras" url="editora/List.xhtml"/>
+                        <p:menuitem value="Categorias" url="categoria/List.xhtml"/>
+                        <p:menuitem value="Livros" url="livro/List.xhtml"/>
+                        <p:menuitem value="Usuários" url="usuario/List.xhtml"/>
                     </p:submenu>
                 </p:menu>
             </p:layoutUnit>
             <!-- FIM West/Esquerda/Oeste -->
 
-            
-            
+
+
             <!-- Center/Centro -->
             <p:layoutUnit position="center">
 
@@ -80,7 +76,7 @@
                         <br/>
                         <h2>A importância da leitura!</h2>
                         <p>Um dos grandes desafios dos professores da educação básica é ensinar a leitura para os alunos, mas ensinar não só a decifrar códigos, e sim a ter o hábito de ler. Seja por prazer, seja para estudar ou para se informar, a prática da leitura aprimora o vocabulário e dinamiza o raciocínio e a interpretação.</p>
-                        
+
                         <br/>
                         <br/>
                         <br/>
@@ -93,7 +89,7 @@
                         </p:carousel>
                         <br/>
                         <br/>
-                        
+
                     </div>
                     <div class="ui-g-1"></div>
                 </div>
@@ -102,6 +98,9 @@
             <!-- FIM Center/Centro -->
         </p:layout>
 
+        <br />
+        <h:link outcome="/mensagem/List" value="Show All Mensagem Items"/>
     </h:body>
+
 </html>
 
